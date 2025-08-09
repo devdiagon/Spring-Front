@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: white;
+  box-shadow: 2px 2px 1.5px 1px rgba(77, 49, 44, 0.411);
+}
+
+th {
+  padding: .75rem;
+  background-color: #5D4037;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  th, td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

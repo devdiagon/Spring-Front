@@ -1,0 +1,26 @@
+<div class="panel-container">
+  <div class="panel-header">
+    <h2>CATEGORÍAS</h2>
+    <div class="action-buttons">
+      <a routerLink="/" class="btn btn-back">
+        <i class="fa-solid fa-arrow-left"></i> Regresar</a>
+      <button (click)="openAddModal()" class="btn btn-add">
+        <i class="fa-solid fa-circle-plus"></i> Registrar</button>
+    </div>
+  </div>
+
+  <app-table [headers]="headers">
+    @for (category of categories(); track category.id) {
+      <tr>
+        <td>{{ category.id }}</td>
+        <td>{{ category.name }}</td>
+        <td>{{ category.description }}</td>
+        <td>{{ category.creationDate | date:'mediumDate' }}</td>
+        <td class="action-cell">
+          <button (click)="openEditModal(category)" class="btn-edit"><i class="fa-solid fa-pencil"></i> Editar</button>
+          <button (click)="deleteCategory(category.id)" class="btn-delete"><i class="fa-solid fa-trash"></i> Eliminar</button>
+        </td>
+      </tr>
+    }
+  </app-table>
+</div>

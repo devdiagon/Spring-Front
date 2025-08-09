@@ -1,0 +1,27 @@
+<div class="panel-container">
+  <div class="panel-header">
+    <h2>PRODUCTOS</h2>
+    <div class="action-buttons">
+      <a routerLink="/" class="btn btn-back">
+        <i class="fa-solid fa-arrow-left"></i> Regresar</a>
+      <button (click)="openAddModal()" class="btn btn-add">
+        <i class="fa-solid fa-circle-plus"></i> Registrar</button>
+    </div>
+  </div>
+
+  <app-table [headers]="headers">
+    @for (product of products(); track product.id) {
+      <tr>
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>${{ product.price | number:'1.2-2' }}</td>
+        <td>{{ product.category?.name ?? 'N/A' }}</td>
+        <td class="action-cell">
+          <button (click)="openEditModal(product)" class="btn-edit"><i class="fa-solid fa-pencil"></i> Editar</button>
+          <button (click)="deleteProduct(product.id)" class="btn-delete"><i class="fa-solid fa-trash"></i> Eliminar</button>
+        </td>
+      </tr>
+    }
+  </app-table>
+</div>
